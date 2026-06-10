@@ -35,7 +35,7 @@ export function Navbar() {
           href="/"
           className="font-serif text-lg tracking-wide hover:text-gold-500 transition-colors"
         >
-          Clara Rolina
+          Sabrine Rolina
         </Link>
 
         <ul className="flex items-center gap-8">

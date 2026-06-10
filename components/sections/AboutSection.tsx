@@ -25,7 +25,7 @@ export function AboutSection() {
                 voit et ce qu&apos;on ressent. »
               </blockquote>
               <p className="text-sm font-light text-muted-foreground leading-relaxed">
-                Clara Rolina est une artiste plasticienne basée à Paris. Formée aux
+                Sabrine Rolina est une artiste plasticienne basée à Paris. Formée aux
                 Beaux-Arts, elle travaille principalement l&apos;huile, l&apos;acrylique
                 et les techniques mixtes. Son travail explore les tensions entre
                 abstraction et figuration, lumière naturelle et matière brute.

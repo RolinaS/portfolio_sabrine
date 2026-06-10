@@ -17,11 +17,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Clara Rolina — Artiste plasticienne",
+  title: "Sabrine Rolina — Artiste plasticienne",
   description:
-    "Portfolio de Clara Rolina, artiste plasticienne basée à Paris. Peintures, illustrations et créations mixtes.",
+    "Portfolio de Sabrine Rolina, artiste plasticienne basée à Paris. Peintures, illustrations et créations mixtes.",
   openGraph: {
-    title: "Clara Rolina — Artiste plasticienne",
+    title: "Sabrine Rolina — Artiste plasticienne",
     description: "Portfolio d'art · Paris",
     type: "website",
   },

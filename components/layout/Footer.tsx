@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t border-border mt-0">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-muted-foreground font-light">
-          © {new Date().getFullYear()} Clara Rolina — Tous droits réservés
+          © {new Date().getFullYear()} Sabrine Rolina — Tous droits réservés
         </p>
         <div className="flex items-center gap-6">
           {[

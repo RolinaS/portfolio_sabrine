@@ -66,7 +66,7 @@ export default function ContactPage() {
           <BlurFade delay={0.4}>
             <div className="space-y-8 pt-2">
               <ContactItem icon={<Mail className="w-4 h-4" />} label="Email">
-                clara.rolina@email.com
+                Sabrine.rolina@email.com
               </ContactItem>
               <ContactItem icon={<MapPin className="w-4 h-4" />} label="Ville">
                 Paris, France
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 icon={<Instagram className="w-4 h-4" />}
                 label="Instagram"
               >
-                @clara.rolina.art
+                @Sabrine.rolina.art
               </ContactItem>
 
               <div className="pt-8 border-t border-border">

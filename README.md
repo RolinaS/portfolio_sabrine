@@ -1,4 +1,4 @@
-# Portfolio Art — Clara Rolina
+# Portfolio Art — Sabrine Rolina
 
 Portfolio personnel d'artiste plasticienne, construit avec Next.js 15, TypeScript, TailwindCSS, shadcn/ui et Magic UI.
 
@@ -96,7 +96,7 @@ Dans `app/globals.css`, modifier `--accent`.
 
 ### Changer le nom
 
-Chercher `Clara Rolina` dans :
+Chercher `Sabrine Rolina` dans :
 - `app/layout.tsx` (metadata)
 - `components/layout/Navbar.tsx`
 - `components/layout/Footer.tsx`
