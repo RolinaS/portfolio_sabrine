@@ -14,5 +14,9 @@ export default function Home() {
     <ContactBand key="contact" />,
   ];
 
-  return <ScrollContainer sections={sections} />;
+  return (
+    <div className="h-screen overflow-hidden">
+      <ScrollContainer sections={sections} />
+    </div>
+  );
 }

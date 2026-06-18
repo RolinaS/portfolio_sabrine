@@ -6,7 +6,7 @@ export function ContactBand() {
     <section className="h-full bg-foreground text-background flex items-center overflow-hidden relative">
 
       {/* Image décorative — positionnée à droite, légèrement rognée */}
-      <div className="absolute right-15 bottom-0 h-full w-[600px] opacity-25 pointer-events-none select-none">
+      <div className="absolute right-20 bottom-0 h-full w-[600px] opacity-25 pointer-events-none select-none">
         <Image
           src="/visage.png"
           alt=""

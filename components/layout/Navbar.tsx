@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
 const links = [
-  { href: "/#gallery", label: "Œuvres" },
+  { href: "/works", label: "Œuvres" },
   { href: "/#about", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];
