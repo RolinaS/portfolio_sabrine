@@ -1,37 +1,63 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight } from "lucide-react";
 import { works, type Work } from "@/data/works";
 import { BlurFade } from "@/components/magicui/BlurFade";
-import { cn } from "@/lib/utils";
 
 export function GallerySection() {
   const [selected, setSelected] = useState<Work | null>(null);
 
   return (
-    <section id="gallery" className="pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Header */}
-        <div className="flex items-baseline justify-between border-t border-border pt-8 pb-10">
+    <div className="h-full flex flex-col overflow-hidden">
+      {/* Header */}
+      <BlurFade delay={0.1} inView>
+        <div className="flex items-baseline justify-between px-10 pt-10 pb-6 border-b border-border shrink-0">
           <h2 className="font-serif text-3xl font-normal">Œuvres récentes</h2>
           <span className="text-xs uppercase tracking-widest text-gold-500">
             {works.length} pièces
           </span>
         </div>
+      </BlurFade>
 
-        {/* Grid */}
-        <div className="grid grid-cols-12 gap-4">
+      {/* Masonry flex gallery — inspiré du codepen michydev */}
+      <div className="flex-1 overflow-hidden px-3 pt-3 pb-0">
+        <ul
+          className="photogallery"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            margin: "0",
+            padding: "0",
+            listStyle: "none",
+            height: "100%",
+          }}
+        >
           {works.map((work, i) => (
-            <BlurFade key={work.id} delay={0.08 * i} inView>
-              <WorkCard work={work} onOpen={setSelected} />
+            <BlurFade key={work.id} delay={0.06 * i} inView>
+              <GalleryItem work={work} onOpen={setSelected} />
             </BlurFade>
           ))}
-        </div>
+          {/* flex spacer — même technique que le codepen */}
+          <li style={{ flexGrow: 10 }} />
+        </ul>
       </div>
+
+      {/* CTA */}
+      <BlurFade delay={0.5} inView>
+        <div className="shrink-0 flex justify-center py-5 border-t border-border">
+          <Link
+            href="/works"
+            className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-3 text-xs uppercase tracking-widest hover:bg-gold-500 transition-colors duration-300"
+          >
+            Voir toutes les œuvres
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </BlurFade>
 
       {/* Lightbox */}
       <AnimatePresence>
@@ -39,74 +65,49 @@ export function GallerySection() {
           <Lightbox work={selected} onClose={() => setSelected(null)} />
         )}
       </AnimatePresence>
-    </section>
+    </div>
   );
 }
 
-function WorkCard({
-  work,
-  onOpen,
-}: {
-  work: Work;
-  onOpen: (w: Work) => void;
-}) {
-  const colSpan = {
-    large: "col-span-12 md:col-span-7",
-    medium: "col-span-12 md:col-span-5",
-    full: "col-span-12",
-    third: "col-span-12 sm:col-span-6 md:col-span-4",
-    small: "col-span-6 md:col-span-3",
-  }[work.size];
-
-  const aspectRatio = {
-    large: "aspect-[4/5]",
-    medium: "aspect-[4/5]",
-    full: "aspect-[21/9]",
-    third: "aspect-[4/5]",
-    small: "aspect-square",
-  }[work.size];
-
+function GalleryItem({ work, onOpen }: { work: Work; onOpen: (w: Work) => void }) {
   return (
-    <div className={cn("group cursor-pointer", colSpan)} onClick={() => onOpen(work)}>
-      <div
-        className={cn(
-          "relative overflow-hidden",
-          aspectRatio
-        )}
-        style={{ backgroundColor: work.color }}
-      >
-        {work.image ? (
-          <Image
-            src={work.image}
-            alt={work.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-          />
-        ) : (
-          <div
-            className="w-full h-full flex items-center justify-center font-serif italic text-white/20 text-lg transition-transform duration-700 group-hover:scale-[1.04]"
-          >
-            {work.title}
-          </div>
-        )}
+    <li
+      onClick={() => onOpen(work)}
+      style={{
+        flexGrow: 1,
+        height: "42vh",
+        margin: "3px",
+        overflow: "hidden",
+        position: "relative",
+        cursor: "pointer",
+        minWidth: "200px",
+        backgroundColor: work.color,
+      }}
+      className="group"
+    >
+      {work.image ? (
+        <Image
+          src={work.image}
+          alt={work.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      ) : (
+        <div
+          className="w-full h-full transition-transform duration-700 group-hover:scale-105"
+          style={{ backgroundColor: work.color }}
+        />
+      )}
 
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
-      </div>
-
-      <div className="pt-3 pb-2">
-        <p className="font-serif text-base font-normal text-foreground leading-snug">
-          {work.title}
-        </p>
-        <div className="flex items-center gap-3 mt-1">
-          <span className="text-xs text-muted-foreground uppercase tracking-wider">
-            {work.medium}
-          </span>
-          <span className="text-xs text-muted-foreground">·</span>
-          <span className="text-xs text-muted-foreground">{work.year}</span>
+      {/* Hover overlay avec titre */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-end p-4">
+        <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+          <p className="font-serif text-white text-base leading-tight">{work.title}</p>
+          <p className="text-white/70 text-xs uppercase tracking-wider mt-1">{work.medium}</p>
         </div>
       </div>
-    </div>
+    </li>
   );
 }
 
@@ -137,15 +138,11 @@ function Lightbox({ work, onClose }: { work: Work; onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className="relative w-full aspect-[4/5] max-h-[65vh] overflow-hidden"
-          style={{ backgroundColor: work.color }}
+          className="relative w-full overflow-hidden"
+          style={{ height: "60vh", backgroundColor: work.color }}
         >
-          {work.image ? (
+          {work.image && (
             <Image src={work.image} alt={work.title} fill className="object-contain" />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center font-serif italic text-white/20 text-xl">
-              {work.title}
-            </div>
           )}
         </div>
 

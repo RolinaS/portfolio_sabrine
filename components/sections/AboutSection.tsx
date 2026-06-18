@@ -11,8 +11,8 @@ const info = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="about" className="h-full flex items-center border-t border-border">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 divide-y lg:divide-y-0 lg:divide-x divide-border">
           {/* Left: quote + bio */}
           <BlurFade delay={0.1} inView>

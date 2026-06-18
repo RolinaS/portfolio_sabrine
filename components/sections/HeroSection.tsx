@@ -17,12 +17,12 @@ const variants = {
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-16">
+    <section className="h-full flex items-center overflow-hidden">
       <SpotlightEffect />
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full py-24">
         <motion.p custom={0} initial="hidden" animate="visible" variants={variants}
           className="text-xs uppercase tracking-widest text-gold-500 mb-6 font-medium">
-          Artiste plasticienne · Paris
+          Artiste moderne · Paris
         </motion.p>
 
         <motion.h1 custom={1} initial="hidden" animate="visible" variants={variants}
