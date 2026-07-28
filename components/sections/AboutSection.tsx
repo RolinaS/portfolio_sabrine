@@ -3,9 +3,9 @@ import { BorderBeam } from "@/components/magicui/BorderBeam";
 
 const info = [
   { label: "Basée à", value: "Paris, France" },
-  { label: "Formation", value: "Beaux-Arts de Paris" },
-  { label: "Médiums", value: "Huile, Acrylique, Mixte" },
-  { label: "Expositions", value: "Paris · Lyon · Bordeaux" },
+  { label: "Formation", value: "Gobelins, Paris" },
+  { label: "Médiums", value: "Numérique, Pastel, Mixte" },
+  { label: "Réseau", value: "Instagram · Tiktok · Twitter" },
   { label: "Commandes", value: "Ouvertes", highlight: true },
 ];
 
@@ -25,14 +25,14 @@ export function AboutSection() {
                 voit et ce qu&apos;on ressent. »
               </blockquote>
               <p className="text-sm font-light text-muted-foreground leading-relaxed">
-                Sabrine Rolina est une artiste plasticienne basée à Paris. Formée aux
-                Beaux-Arts, elle travaille principalement l&apos;huile, l&apos;acrylique
-                et les techniques mixtes. Son travail explore les tensions entre
+                Je suis une artiste numérique basée à Paris. Formée aux
+                Gobelins, je travaille principalement via photoshop, crayons pastels
+                et les techniques mixtes. Mon travail explore les tensions entre
                 abstraction et figuration, lumière naturelle et matière brute.
               </p>
               <p className="text-sm font-light text-muted-foreground leading-relaxed mt-4">
-                Ses œuvres ont été exposées dans plusieurs galeries parisiennes et
-                font partie de collections privées en France et à l&apos;étranger.
+                Mes oeuvres sont visibles sur mes réseau personnels et sur demande. 
+                Je suis ouverte aux collaborations et aux commandes
               </p>
             </div>
           </BlurFade>

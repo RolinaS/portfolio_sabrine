@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn(
         inter.variable,
         playfair.variable,
-        "font-sans bg-background text-foreground h-screen"
+        "font-sans bg-background text-foreground min-h-screen"
       )}>
         <Navbar />
         {children}
